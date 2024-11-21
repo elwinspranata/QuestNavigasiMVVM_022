@@ -21,77 +21,11 @@ import androidx.compose.ui.unit.dp
 //@Preview(showBackground = true)
 @Composable
 fun FormulirMahasiswaView(modifier: Modifier = Modifier,
-                 listJK: List<String>,
-                 onSumbitClicked: (MutableList<String>) -> Unit
+                          listJK: List<String>,
+                          onSumbitClicked: (MutableList<String>) -> Unit
 ){
     var nama by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var alamat by remember { mutableStateOf("") }
     var notelp by remember { mutableStateOf("") }
     var gender by remember { mutableStateOf("") }
-
-    val listData: MutableList<String> = mutableListOf(nama, gender, alamat, email, notelp)
-
-    Column(modifier = modifier.fillMaxSize().padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally) {
-        TextField(
-            value = nama,
-            onValueChange = {nama = it},
-            label = {
-                Text(text = "Nama")
-            },
-            placeholder = {
-                Text(text = "Isi Nama Anda")
-            },
-            modifier = Modifier.fillMaxWidth().padding(5.dp)
-        )
-        Row(modifier = Modifier.fillMaxWidth()) {
-            listJK.forEach{selectedGender->
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    RadioButton(
-                        selected = gender == selectedGender,
-                        onClick = {gender = selectedGender}
-                    )
-                    Text(text = selectedGender)}
-            }
-        }
-        TextField(
-            value = email,
-            onValueChange = {email = it},
-            label = {
-                Text(text = "Email")
-            },
-            placeholder = {
-                Text(text = "Isi Email Anda")
-            },
-            modifier = Modifier.fillMaxWidth().padding(5.dp), keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
-        )
-        TextField(
-            value = alamat,
-            onValueChange = {alamat = it},
-            label = {
-                Text(text = "Alamat")
-            },
-            placeholder = {
-                Text(text = "Isi Alamat Anda")
-            },
-            modifier = Modifier.fillMaxWidth().padding(5.dp)
-        )
-        TextField(
-            value = notelp,
-            onValueChange = {notelp = it},
-            label = {
-                Text(text = "No Telepon")
-            },
-            placeholder = {
-                Text(text = "Isi Nomor Telepon Anda")
-            },
-            modifier = Modifier.fillMaxWidth().padding(5.dp), keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
-        )
-        Button(onClick = {
-            onSumbitClicked(listData)
-        } ) {
-            Text(text = "Simpan")
-        }
-    }
-}
