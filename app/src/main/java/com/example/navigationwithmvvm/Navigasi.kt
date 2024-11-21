@@ -48,3 +48,15 @@ fun Navigasi(
                     }
                 )
             }
+
+            composable(route = Halaman.TAMPILDATA.name) {
+                DetailMahasiswaView(
+                    uiState = uiState,
+                    onBackButton = {
+                        navHost.popBackStack()
+                    }
+                )
+            }
+        }
+    }
+}
