@@ -38,3 +38,13 @@ fun Navigasi(
             navController = navHost,
             startDestination = Halaman.FORMULIR.name
         ) {
+            composable(route = Halaman.FORMULIR.name) {
+                val konteks = LocalContext.current
+                FormulirMahasiswaView (
+                    listJK = Gender.ListGender.map { isi -> konteks.getString(isi) },
+                    onSumbitClicked = {
+                        viewModel.saveDataMahasiswa(it)
+                        navHost.navigate(Halaman.TAMPILDATA.name)
+                    }
+                )
+            }
