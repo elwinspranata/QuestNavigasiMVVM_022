@@ -30,3 +30,11 @@ fun Navigasi(
     viewModel: MahasiswaViewModel = viewModel(),
     navHost: NavHostController = rememberNavController()
 ) {
+    val uiState by viewModel.uistate.collectAsState()
+
+    Scaffold { innerPadding ->
+        NavHost(
+            modifier = modifier.padding(innerPadding),
+            navController = navHost,
+            startDestination = Halaman.FORMULIR.name
+        ) {
