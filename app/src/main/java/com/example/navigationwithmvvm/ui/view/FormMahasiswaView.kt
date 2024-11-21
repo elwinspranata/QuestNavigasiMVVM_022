@@ -55,3 +55,25 @@ fun FormulirMahasiswaView(modifier: Modifier = Modifier,
                     Text(text = selectedGender)}
             }
         }
+        TextField(
+            value = email,
+            onValueChange = {email = it},
+            label = {
+                Text(text = "Email")
+            },
+            placeholder = {
+                Text(text = "Isi Email Anda")
+            },
+            modifier = Modifier.fillMaxWidth().padding(5.dp), keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
+        )
+        TextField(
+            value = alamat,
+            onValueChange = {alamat = it},
+            label = {
+                Text(text = "Alamat")
+            },
+            placeholder = {
+                Text(text = "Isi Alamat Anda")
+            },
+            modifier = Modifier.fillMaxWidth().padding(5.dp)
+        )
