@@ -77,3 +77,21 @@ fun FormulirMahasiswaView(modifier: Modifier = Modifier,
             },
             modifier = Modifier.fillMaxWidth().padding(5.dp)
         )
+        TextField(
+            value = notelp,
+            onValueChange = {notelp = it},
+            label = {
+                Text(text = "No Telepon")
+            },
+            placeholder = {
+                Text(text = "Isi Nomor Telepon Anda")
+            },
+            modifier = Modifier.fillMaxWidth().padding(5.dp), keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+        )
+        Button(onClick = {
+            onSumbitClicked(listData)
+        } ) {
+            Text(text = "Simpan")
+        }
+    }
+}
