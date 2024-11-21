@@ -31,15 +31,3 @@ fun DetailMahasiswaView(
         }
     }
 }
-
-@Composable
-fun TampilData(Param : String, Argu : String){
-    Column(modifier = Modifier.padding(16.dp)) {
-        Row(modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween) {
-            Text(text = Param, modifier = Modifier.weight(0.8f))
-            Text(text = ": ", modifier = Modifier.weight(0.2f))
-            Text(text = Argu, modifier = Modifier.weight(2f))
-        }
-    }
-}
